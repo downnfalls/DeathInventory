@@ -1,6 +1,6 @@
 package me.downn_falls.guiapi;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTItem;
 import me.downn_falls.guiapi.GuiInventoryHolder;
 import me.downn_falls.guiapi.api.Clickable;
 import me.downn_falls.guiapi.api.Editable;

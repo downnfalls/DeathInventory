@@ -1,18 +1,21 @@
 package me.downn_falls.deathInventory.cache;
 
-import me.downn_falls.deathInventory.manager.DeathData;
+import me.downn_falls.deathInventory.manager.PlayerData;
 import org.bukkit.entity.Player;
-
-import java.util.List;
 
 public class RedisDataManager implements TemporaryDataInterface {
     @Override
-    public List<DeathData> getDeathInventories(Player player) {
-        return List.of();
+    public void loadData(Player player) {
+
     }
 
     @Override
-    public void saveDeathInventory(Player player, List<DeathData> inventory) {
+    public PlayerData getData(Player player) {
+        return null;
+    }
+
+    @Override
+    public void saveData(Player player) {
 
     }
 }

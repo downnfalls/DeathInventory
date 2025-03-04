@@ -1,18 +1,32 @@
 package me.downn_falls.deathInventory.cache;
 
-import me.downn_falls.deathInventory.manager.DeathData;
+import me.downn_falls.deathInventory.DeathInventory;
+import me.downn_falls.deathInventory.manager.PlayerData;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.HashMap;
 
 public class LocalDataManager implements TemporaryDataInterface {
+
+
+    HashMap<Player, PlayerData> deathData = new HashMap<>();
+
+
     @Override
-    public List<DeathData> getDeathInventories(Player player) {
-        return List.of();
+    public void loadData(Player player) {
+        DeathInventory.getPersistentDataInterface().loadDeathInventories(player, (playerData) -> {
+            deathData.put(player, playerData);
+        });
     }
 
     @Override
-    public void saveDeathInventory(Player player, List<DeathData> inventory) {
+    public PlayerData getData(Player player) {
+        return deathData.get(player);
+    }
 
+    @Override
+    public void saveData(Player player) {
+        PlayerData playerData = PlayerData.get(player);
+        DeathInventory.getPersistentDataInterface().saveDeathInventory(player, playerData.getDeathCount(), playerData.getDeathData());
     }
 }

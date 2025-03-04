@@ -2,6 +2,8 @@ package me.downn_falls.deathInventory.manager;
 
 import org.bukkit.inventory.ItemStack;
 
+import java.util.Arrays;
+
 public class DeathData {
 
     private final long date;
@@ -36,6 +38,11 @@ public class DeathData {
 
     public ItemStack getOffhand() {
         return offhand;
+    }
+
+    @Override
+    public String toString() {
+        return "{date: " + date + ", deathCount: " + deathCount + ", inventory: " + Arrays.toString(inventory) + ", armor: " + Arrays.toString(armor) + ", offhand: " + offhand + "}";
     }
 
 }

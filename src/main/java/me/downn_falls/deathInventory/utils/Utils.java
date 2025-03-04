@@ -2,6 +2,9 @@ package me.downn_falls.deathInventory.utils;
 
 import me.downn_falls.deathInventory.DeathInventory;
 
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,5 +29,12 @@ public class Utils {
 
     public static String getMessage(String path, boolean prefix) {
         return (prefix ? DeathInventory.getInstance().getConfig().getString("message.prefix") + " " : "") + DeathInventory.getInstance().getConfig().getString("message."+path);
+    }
+
+    public static String getDateFormatted(long timestamp, String format) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format)
+                .withZone(ZoneId.systemDefault());
+
+        return formatter.format(Instant.ofEpochMilli(timestamp));
     }
 }

@@ -1,6 +1,6 @@
 package me.downn_falls.guiapi.component;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTItem;
 import me.downn_falls.guiapi.GUI;
 import me.downn_falls.guiapi.GuiListener;
 import me.downn_falls.guiapi.GuiRenderer;

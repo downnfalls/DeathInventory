@@ -1,6 +1,6 @@
 package me.downn_falls.guiapi.component;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTItem;
 import me.downn_falls.deathInventory.DeathInventory;
 import me.downn_falls.guiapi.*;
 import me.downn_falls.guiapi.api.Clickable;

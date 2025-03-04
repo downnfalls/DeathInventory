@@ -1,6 +1,6 @@
 package me.downn_falls.guiapi;
 
-import de.tr7zw.changeme.nbtapi.NBTItem;
+import de.tr7zw.nbtapi.NBTItem;
 import me.downn_falls.guiapi.utils.GuiUtils;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;

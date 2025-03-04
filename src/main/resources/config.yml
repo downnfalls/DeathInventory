@@ -12,7 +12,8 @@ redis:
   password: ''
 
 setting:
-  max_inventory: 3
+  artifact_slot: [9, 10, 11, 12]
+  claim_price: 10000000
 
 gui:
   death1:
@@ -56,7 +57,90 @@ gui:
         - "&c• &#eca4a7Required rank: &#eeb3ed{rank}"
         - ""
         - "&#90fffdRight Click &#fff8c1to view inventory."
+  death2:
+    slot: 4
+    empty:
+      material: MINECART
+      model: 0
+      display_name: "&8Empty"
+      lore:
+        - ""
+        - "&7This slot is empty."
+    full:
+      material: CHEST_MINECART
+      model: 0
+      display_name: "&#A13333Death &#cc703b#{death}"
+      lore:
+        - ""
+        - "&8Date: &7{date}"
+        - ""
+        - "&c• &7You need &6{price}$ &7to claim"
+        - ""
+        - "&#a6ffa8Left Click &#fff8c1to claim."
+        - "&#90fffdRight Click &#fff8c1to view inventory."
+    empty_lock:
+      material: MINECART
+      model: 0
+      display_name: "&8Empty"
+      lore:
+        - ""
+        - "&7This slot is empty."
+        - ""
+        - "&c• &#eca4a7Required rank: &#eeb3ed{rank}"
+    full_lock:
+      material: CHEST_MINECART
+      model: 0
+      display_name: "&#A13333Death &#cc703b#{death}"
+      lore:
+        - ""
+        - "&8Date: &7{date}"
+        - ""
+        - "&c• &#eca4a7Required rank: &#eeb3ed{rank}"
+        - ""
+        - "&#90fffdRight Click &#fff8c1to view inventory."
+  death3:
+    slot: 5
+    empty:
+      material: MINECART
+      model: 0
+      display_name: "&8Empty"
+      lore:
+        - ""
+        - "&7This slot is empty."
+    full:
+      material: CHEST_MINECART
+      model: 0
+      display_name: "&#A13333Death &#cc703b#{death}"
+      lore:
+        - ""
+        - "&8Date: &7{date}"
+        - ""
+        - "&c• &7You need &6{price}$ &7to claim"
+        - ""
+        - "&#a6ffa8Left Click &#fff8c1to claim."
+        - "&#90fffdRight Click &#fff8c1to view inventory."
+    empty_lock:
+      material: MINECART
+      model: 0
+      display_name: "&8Empty"
+      lore:
+        - ""
+        - "&7This slot is empty."
+        - ""
+        - "&c• &#eca4a7Required rank: &#eeb3ed{rank}"
+    full_lock:
+      material: CHEST_MINECART
+      model: 0
+      display_name: "&#A13333Death &#cc703b#{death}"
+      lore:
+        - ""
+        - "&8Date: &7{date}"
+        - ""
+        - "&c• &#eca4a7Required rank: &#eeb3ed{rank}"
+        - ""
+        - "&#90fffdRight Click &#fff8c1to view inventory."
 
 message:
   prefix: "&#FAEDCB[&#DBCDF0DeathInventory&#FAEDCB]"
   gui-title: "Death Inventory"
+  date-format: "dd/MM/yyyy | HH:mm"

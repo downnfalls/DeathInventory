@@ -1,13 +1,12 @@
 package me.downn_falls.deathInventory.cache;
 
-import me.downn_falls.deathInventory.manager.DeathData;
+import me.downn_falls.deathInventory.manager.PlayerData;
 import org.bukkit.entity.Player;
-
-import java.util.List;
 
 public interface TemporaryDataInterface {
 
-    List<DeathData> getDeathInventories(Player player);
-    void saveDeathInventory(Player player, List<DeathData> inventory);
+    void loadData(Player player);
+    PlayerData getData(Player player);
+    void saveData(Player player);
 
 }

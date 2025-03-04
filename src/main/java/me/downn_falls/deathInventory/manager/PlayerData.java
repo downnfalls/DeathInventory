@@ -1,20 +1,16 @@
 package me.downn_falls.deathInventory.manager;
 
+import me.downn_falls.deathInventory.DeathInventory;
+import me.downn_falls.deathInventory.utils.PushList;
 import org.bukkit.entity.Player;
-import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.inventory.ItemStack;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class PlayerData {
 
     private final Player player;
     private int deaths;
-    private final List<DeathData> deathData;
+    private final PushList<DeathData> deathData;
 
-    public PlayerData(Player player, int deaths, List<DeathData> deathData) {
+    public PlayerData(Player player, int deaths, PushList<DeathData> deathData) {
         this.player = player;
         this.deaths = deaths;
         this.deathData = deathData;
@@ -28,14 +24,20 @@ public class PlayerData {
         return deaths;
     }
 
-    public List<DeathData> getDeathData() {
+    public PushList<DeathData> getDeathData() {
         return deathData;
     }
 
-    public void triggerDeath(PlayerDeathEvent event) {
+    public void triggerDeath(DeathData deathData) {
+        deaths = deathData.getDeathCount();
+        this.deathData.add(deathData);
+    }
 
-        deaths++;
-        ItemStack[] inventoryContent = event.getEntity().getInventory().getStorageContents();
+    public void claim(int index) {
+        deathData.remove(index);
+    }
 
+    public static PlayerData get(Player player) {
+        return DeathInventory.getTemporaryDataInterface().getData(player);
     }
 }

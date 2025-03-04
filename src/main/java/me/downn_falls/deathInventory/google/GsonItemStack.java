@@ -14,6 +14,7 @@ public class GsonItemStack implements JsonSerializer<ItemStack>, JsonDeserialize
 
     @Override
     public JsonElement serialize(ItemStack itemStack, Type type, JsonSerializationContext jsonSerializationContext) {
+
         return new JsonPrimitive(ItemStackSerializer.serialize(itemStack));
     }
 }
