@@ -2,6 +2,10 @@ name: DeathInventory
 version: '1.0-SNAPSHOT'
 main: me.downn_falls.deathInventory.DeathInventory
 api-version: '1.20'
+depend:
+  - NBTAPI
+  - Vault
+  - MagicCosmetics
 commands:
   deathinventory:
     permission: deathinventory.use

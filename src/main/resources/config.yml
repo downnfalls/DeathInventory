@@ -14,7 +14,6 @@ redis:
 setting:
   artifact_slot: [9, 10, 11, 12]
   price_per_slot: 500
-  max_inventory: 5
   command_on_claim: []
 
 
