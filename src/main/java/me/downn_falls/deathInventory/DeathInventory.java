@@ -31,7 +31,7 @@ public final class DeathInventory extends JavaPlugin {
         temporaryDataInterface = new LocalDataManager();
         persistentDataInterface = new MySQLDatabase();
 
-        if (!setupEconomy() ) {
+        if (!setupEconomy()) {
             getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
             return;
