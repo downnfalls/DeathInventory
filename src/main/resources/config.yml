@@ -1,0 +1,54 @@
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: ''
+  database: mmorpg_deathinventory
+
+redis:
+  enable: false
+  host: 127.0.0.1
+  port: 8080
+  password: ''
+
+setting:
+  artifact_slot: [9, 10, 11, 12]
+  price_per_slot: 500
+  max_inventory: 5
+  command_on_claim: []
+
+
+gui:
+  title: "Death Inventory"
+  close_button:
+    slot: 49
+    material: BARRIER
+    model: 0
+    display: "Close"
+    lore: []
+  page_items:
+    slot: 10
+    row: 4
+    column: 7
+    prev_button:
+      slot: 47
+      material: ARROW
+      model: 0
+      display: "&ePrevious"
+      lore: []
+    next_button:
+      slot: 51
+      material: ARROW
+      model: 0
+      display: "&eNext"
+      lore: [ ]
+  item:
+    additional_lore:
+      - ""
+      - "&6Claim Price: &e{price}$"
+
+
+message:
+  prefix: "&#FAEDCB[&#DBCDF0DeathInventory&#FAEDCB]"
+  gui-title: "Death Inventory"
+  date-format: "dd/MM/yyyy | HH:mm"
