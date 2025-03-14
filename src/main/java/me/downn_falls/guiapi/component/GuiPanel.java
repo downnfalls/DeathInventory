@@ -6,16 +6,15 @@ import me.downn_falls.guiapi.GuiRenderer;
 import me.downn_falls.guiapi.TriConsumer;
 import me.downn_falls.guiapi.api.Clickable;
 import me.downn_falls.guiapi.api.Editable;
+import org.bukkit.Bukkit;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GuiPanel extends GuiComponent implements Clickable {
 
     private final LinkedHashMap<String, GuiComponent> components = new LinkedHashMap<>();
+    private final Map<String, String> componentIds = new HashMap<>();
 
     private final List<TriConsumer<String, NBTItem, InventoryClickEvent>> listeners = new ArrayList<>();
 
@@ -26,10 +25,12 @@ public class GuiPanel extends GuiComponent implements Clickable {
     public void addComponent(GuiComponent component) {
         component.setParent(this);
         components.put(getFullId()+"."+component.getId(), component);
+        componentIds.put(component.getId(), getFullId()+"."+component.getId());
     }
 
     public void removeComponent(String componentId) {
-        components.keySet().removeIf(componentId::endsWith);
+        components.remove(componentIds.get(componentId));
+        componentIds.remove(componentId);
     }
 
     public Map<String, GuiComponent> getComponents() { return this.components; }

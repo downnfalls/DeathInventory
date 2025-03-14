@@ -14,6 +14,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.checkerframework.checker.units.qual.K;
 
 import java.math.BigDecimal;
 
@@ -47,6 +48,7 @@ public class DeathInventoryUI extends GUI {
         pageItems.setNotAvailableComponent(new ItemStackBuilder(Material.AIR, 1).build());
 
         for (ItemData itemData : playerData.getItems()) {
+
             GuiButton item = new GuiButton(this, itemData.getItemUuid().toString(), 0);
             item.setDisplayItem(new ItemStackBuilder(itemData.getItem())
                     .addLore(configGUI.getStringList("item.additional_lore").stream().map(line -> line.replace("{price}", String.valueOf(price))).toArray(String[]::new)).build());
@@ -56,13 +58,16 @@ public class DeathInventoryUI extends GUI {
                     if (canFitItem(player, itemData.getItem())) {
                         playerData.removeItem(itemData);
                         player.getInventory().addItem(itemData.getItem());
-                        event.getInventory().setItem(event.getSlot(), new ItemStackBuilder(Material.AIR, 1).build());
+                        pageItems.removeComponent(itemData.getItemUuid().toString());
                         for (String command : configSetting.getStringList("command_on_claim")) {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("{player}", player.getName()));
                         }
+                        repaint();
                     }
                 }
             });
+
+            pageItems.addComponent(item);
         }
 
         addComponent(pageItems);

@@ -71,12 +71,11 @@ public class GuiRenderer {
             }
 
             item = nbt.getItem();
-
-            if (parent == null) {
-                inventory.setItem(getSlot(slot), item);
-            } else {
-                parent.setSlot(getSlot(slot), item);
-            }
+        }
+        if (parent == null) {
+            inventory.setItem(getSlot(slot), item);
+        } else {
+            parent.setSlot(getSlot(slot), item);
         }
     }
 

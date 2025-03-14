@@ -1,10 +1,12 @@
 package me.downn_falls.guiapi.component;
 
 import de.tr7zw.nbtapi.NBTItem;
+import me.downn_falls.deathInventory.DeathInventory;
 import me.downn_falls.guiapi.GUI;
 import me.downn_falls.guiapi.GuiRenderer;
 import me.downn_falls.guiapi.GuiUtils;
 import me.downn_falls.guiapi.ItemStackBuilder;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -55,6 +57,7 @@ public class GuiListPage extends GuiListPanel {
         renderer.addMetadata("page", page);
 
         List<GuiComponent> components = getComponents().values().stream().toList();
+
         int space = getRow() * getColumn();
 
         ItemStack prevButton = new ItemStackBuilder(GuiUtils.isPageValid(components.size(), page-1, space) ? this.prevButton : notAvailableButton).addItemTag("component-id", getFullId()+".prev-page").build();
