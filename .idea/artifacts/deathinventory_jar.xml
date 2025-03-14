@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="deathinventory:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/deathinventory_jar</output-path>
+    <root id="archive" name="deathinventory.jar">
+      <element id="module-output" name="deathinventory" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/item-nbt-api-plugin-2.11.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.8.0-beta4/slf4j-api-1.8.0-beta4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/zaxxer/HikariCP/6.2.1/HikariCP-6.2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/MagicCosmetics-2.9.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/24.0.1/annotations-24.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Vault (1).jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

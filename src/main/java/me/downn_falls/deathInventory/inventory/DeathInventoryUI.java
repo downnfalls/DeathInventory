@@ -15,6 +15,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import java.math.BigDecimal;
+
 public class DeathInventoryUI extends GUI {
 
     private final ConfigurationSection configGUI = DeathInventory.getInstance().getConfig().getConfigurationSection("gui");
@@ -50,12 +52,10 @@ public class DeathInventoryUI extends GUI {
                     .addLore(configGUI.getStringList("item.additional_lore").stream().map(line -> line.replace("{price}", String.valueOf(price))).toArray(String[]::new)).build());
 
             item.addListener((id, nbt, event) -> {
-                if (DeathInventory.getEconomy().getBalance(player) >= price) {
+                if (DeathInventory.getXConomyAPI().changePlayerBalance(player.getUniqueId(), player.getName(), BigDecimal.valueOf(price), false, DeathInventory.getInstance().getName()) == 0) {
                     if (canFitItem(player, itemData.getItem())) {
                         playerData.removeItem(itemData);
-                        DeathInventory.getEconomy().withdrawPlayer(player, price);
                         player.getInventory().addItem(itemData.getItem());
-
                         event.getInventory().setItem(event.getSlot(), new ItemStackBuilder(Material.AIR, 1).build());
                         for (String command : configSetting.getStringList("command_on_claim")) {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), command.replace("{player}", player.getName()));

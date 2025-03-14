@@ -6,6 +6,7 @@ depend:
   - NBTAPI
   - Vault
   - MagicCosmetics
+  - XConomy
 commands:
   deathinventory:
     permission: deathinventory.use
