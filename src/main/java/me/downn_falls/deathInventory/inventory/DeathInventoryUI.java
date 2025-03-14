@@ -27,7 +27,16 @@ public class DeathInventoryUI extends GUI {
         super(DeathInventory.getInstance().getConfig().getString("gui.title"), 6);
 
         PlayerData playerData = PlayerData.get(player);
-        double price = configSetting.getDouble("price_per_slot");
+
+        double minPrice = configSetting.getDouble("price.default");
+        for (String price_rate : configSetting.getConfigurationSection("price").getKeys(false)) {
+            double currentPrice = configSetting.getDouble("price."+price_rate);
+            if (currentPrice < minPrice && player.hasPermission("deathinventory.pricerate."+price_rate)) {
+                minPrice = currentPrice;
+            }
+        }
+
+        double price = minPrice;
 
         GuiButton button = new GuiButton(this, "close", configGUI.getInt("close_button.slot"));
         button.setDisplayItem(new ItemStackBuilder(Material.valueOf(configGUI.getString("close_button.material")), 1)
@@ -82,7 +91,7 @@ public class DeathInventoryUI extends GUI {
         }
 
         // Check if the item can stack with existing items
-        for (ItemStack content : inventory.getContents()) {
+        for (ItemStack content : inventory.getStorageContents()) {
             if (content != null && content.isSimilar(item) && content.getAmount() + item.getAmount() <= content.getMaxStackSize()) {
                 return true;
             }
